@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_bg"
+    android:orientation="vertical"
+    tools:context=".home.HomePageFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="29dp"
+            android:layout_marginStart="140dp"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="334dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/frame">
+
+            <ImageView
+                android:layout_width="144dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="140dp"
+                android:src="@drawable/billie_eilish" />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:layout_marginTop="10dp"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorColor="@color/green"
+        app:tabIndicatorHeight="3dp"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white"
+        app:tabTextAppearance="@style/tab_text"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/home_pager"
+        android:layout_width="match_parent"
+        android:layout_height="280dp" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_play_list"
+        android:name="vn.edu.usth.midgroupproject.home.PlayListFragment"/>
+
+
+</LinearLayout>

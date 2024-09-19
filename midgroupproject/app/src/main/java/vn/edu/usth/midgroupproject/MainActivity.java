@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import vn.edu.usth.midgroupproject.databinding.ActivityMainBinding;
+import vn.edu.usth.midgroupproject.home.HomePageFragment;
 import vn.edu.usth.midgroupproject.library.LibraryPageFragment;
 import vn.edu.usth.midgroupproject.liked.LikedSongsPageFragment;
 import vn.edu.usth.midgroupproject.search.SearchFragment;
@@ -33,22 +34,13 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        Load the correct fragment on startup
-//        if (savedInstanceState == null) {
-//            // Load the correct fragment when the app starts
-//            LikedSongsPageFragment likedSongsPageFragment = new LikedSongsPageFragment();
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.main_container, likedSongsPageFragment)
-//                    .commit();
-//        }
-
-        replaceFragment(new LibraryPageFragment());
+        replaceFragment(new HomePageFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
             if (itemId == R.id.home) {
-                replaceFragment(new SigninFragment());
+                replaceFragment(new HomePageFragment());
             }
             else if (itemId == R.id.search) {
                 replaceFragment(new SearchFragment());

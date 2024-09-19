@@ -19,7 +19,6 @@
             android:id="@+id/liked_song"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00000000"
             tools:context=".liked.LikedSongsTitle">
 
             <LinearLayout
@@ -72,14 +71,6 @@
                     android:paddingBottom="1dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp">
-
-                    <ImageView
-                        android:id="@+id/download"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:background="#00000000"
-                        android:src="@drawable/down_arrow" />
 
                     <ImageView
                         android:id="@+id/shuffle"
