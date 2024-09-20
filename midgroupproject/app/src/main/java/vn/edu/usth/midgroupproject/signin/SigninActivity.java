@@ -65,5 +65,6 @@ public class SigninActivity extends AppCompatActivity {
                 Toast.makeText(SigninActivity.this, "Apple Sign In Clicked", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }
