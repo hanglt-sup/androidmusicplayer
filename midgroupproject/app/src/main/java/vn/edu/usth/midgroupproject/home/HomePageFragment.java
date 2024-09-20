@@ -27,7 +27,7 @@ public class HomePageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         PagerAdapter adapter = new HomeFragmentPagerAdapter(
-                getActivity().getSupportFragmentManager());
+                getChildFragmentManager());
 
         View v = inflater.inflate(R.layout.fragment_home_page, container, false);
         ViewPager pager = (ViewPager) v.findViewById(R.id.home_pager);

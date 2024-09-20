@@ -1,6 +1,8 @@
 package vn.edu.usth.midgroupproject.signin;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import vn.edu.usth.midgroupproject.MainActivity;
 import vn.edu.usth.midgroupproject.R;
 
 public class SigninActivity extends AppCompatActivity {
@@ -33,8 +36,9 @@ public class SigninActivity extends AppCompatActivity {
         signinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle sign in logic here
                 Toast.makeText(SigninActivity.this, "Sign In Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SigninActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

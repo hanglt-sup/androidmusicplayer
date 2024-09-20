@@ -1,5 +1,6 @@
 package vn.edu.usth.midgroupproject.songs;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import vn.edu.usth.midgroupproject.R;
 public class SongFragment extends Fragment {
     private boolean isLiked = false;
     private boolean isPlaying = false;
+    MediaPlayer mediaPlayer;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,31 +81,40 @@ public class SongFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (isLiked) {
-                    // Change back to default state
                     likeButton.setImageResource(R.drawable.like_off);
                 } else {
-                    // Change to clicked state
                     likeButton.setImageResource(R.drawable.like_on);
                 }
-                isLiked = !isLiked; // Toggle the state
+                isLiked = !isLiked;
             }
         });
 
 //        Play button behaviour
         ImageView playButton = view.findViewById(R.id.play_button);
+        mediaPlayer = MediaPlayer.create(getActivity().getApplicationContext(), R.raw.dangerously_charlie_puth);
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isLiked) {
-                    // Change back to default state
+                if (isPlaying) {
+                    mediaPlayer.pause();
                     playButton.setImageResource(R.drawable.playbutton);
                 } else {
-                    // Change to clicked state
+                    mediaPlayer.start();
                     playButton.setImageResource(R.drawable.pausebutton);
                 }
-                isLiked = !isLiked; // Toggle the state
+                isPlaying = !isPlaying; // Toggle the state
             }
         });
+
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // Release the MediaPlayer when the fragment is destroyed
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
